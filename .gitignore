@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Test and tool caches
+.pytest_cache/
+.coverage
