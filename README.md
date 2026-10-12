@@ -8,3 +8,5 @@ Projects created for the TYL Agentic AI class.
 - [Original Colab notebook](College%20Library%20Management.ipynb) — the initial notebook version of the project.
 
 Each project has its own folder so additional assignments can be added without mixing their code, documentation, or tests.
+
+Updated readmme
