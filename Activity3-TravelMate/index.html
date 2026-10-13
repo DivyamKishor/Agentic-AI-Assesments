@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TravelMate is a rule-based mini autonomous travel agent demo.">
+  <title>TravelMate — Mini Autonomous Travel Agent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="TravelMate home">
+      <span class="brand-icon">✦</span>
+      <span><strong>TravelMate</strong><small>MINI AUTONOMOUS AGENT</small></span>
+    </a>
+    <div class="top-actions">
+      <span class="demo-badge"><span></span> Demo mode</span>
+      <button id="resetMemory" class="ghost-button" type="button">↻ Reset memory</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <div>
+        <div class="eyebrow">YOUR PERSONAL TRAVEL PLANNER</div>
+        <h1>Plan smarter.<br><span>Travel better.</span></h1>
+        <p>Describe your next trip. TravelMate will plan, compare options, remember your preferences, and ask before taking action.</p>
+      </div>
+      <div class="intro-art" aria-hidden="true">
+        <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+        <div class="mountain mountain-back"></div><div class="mountain mountain-front"></div>
+        <div class="path"></div><div class="art-label">YOUR NEXT ADVENTURE</div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="left-column">
+        <section class="card request-card">
+          <div class="section-heading"><div class="section-icon purple">⌖</div><div><h2>Plan your trip</h2><p>Tell the agent what you're looking for.</p></div></div>
+          <form id="tripForm">
+            <div class="field-grid">
+              <label>Starting location<input id="origin" name="origin" placeholder="e.g. Bengaluru" required value="Bengaluru"></label>
+              <label>Destination<input id="destination" name="destination" placeholder="e.g. Mysuru" required value="Mysuru"></label>
+            </div>
+            <div class="field-grid">
+              <label>Travel date<input id="travelDate" name="travelDate" type="date" required></label>
+              <label>Total budget (₹)<input id="budget" name="budget" type="number" min="500" step="500" value="8000" required></label>
+            </div>
+            <label>Travel style
+              <select id="style" name="style">
+                <option value="balanced">Balanced</option>
+                <option value="budget">Budget-friendly</option>
+                <option value="comfort">Comfort</option>
+                <option value="adventure">Adventure</option>
+                <option value="sightseeing">Sightseeing</option>
+              </select>
+            </label>
+            <label>Favourite activities <span class="optional">Choose any</span></label>
+            <div class="chips" id="activityChips">
+              <label class="chip"><input type="checkbox" value="nature" checked><span>🌿 Nature</span></label>
+              <label class="chip"><input type="checkbox" value="food"><span>🍜 Local food</span></label>
+              <label class="chip"><input type="checkbox" value="culture" checked><span>🏛️ Culture</span></label>
+              <label class="chip"><input type="checkbox" value="adventure"><span>🥾 Adventure</span></label>
+              <label class="chip"><input type="checkbox" value="relaxation"><span>☕ Relaxation</span></label>
+            </div>
+            <button class="primary-button full" type="submit"><span>✦</span> Generate travel plan <span class="button-arrow">→</span></button>
+          </form>
+          <p class="form-note">Estimates are illustrative demo data, not live prices or availability.</p>
+        </section>
+
+        <section class="card memory-card">
+          <div class="section-heading compact"><div class="section-icon blue">▣</div><div><h2>Agent memory</h2><p>Preferences saved in this browser.</p></div></div>
+          <div id="memoryContent" class="memory-content"></div>
+        </section>
+      </div>
+
+      <div class="right-column">
+        <section class="card lifecycle-card">
+          <div class="section-heading compact"><div class="section-icon green">◎</div><div><h2>Agent lifecycle</h2><p>Watch the agent work through the request.</p></div><span id="lifecycleStatus" class="status-pill">Waiting</span></div>
+          <div class="lifecycle-track" id="lifecycleTrack">
+            <div class="life-step" data-step="0"><span class="step-num">1</span><span>Understand goal</span></div>
+            <div class="life-step" data-step="1"><span class="step-num">2</span><span>Recall memory</span></div>
+            <div class="life-step" data-step="2"><span class="step-num">3</span><span>Use travel tools</span></div>
+            <div class="life-step" data-step="3"><span class="step-num">4</span><span>Observe results</span></div>
+            <div class="life-step" data-step="4"><span class="step-num">5</span><span>Compare & re-plan</span></div>
+            <div class="life-step" data-step="5"><span class="step-num">6</span><span>Human approval</span></div>
+          </div>
+        </section>
+
+        <section class="card plan-card" id="planCard">
+          <div class="section-heading compact"><div class="section-icon purple">✧</div><div><h2>Recommended itinerary</h2><p id="planSubtitle">Your generated plan will appear here.</p></div></div>
+          <div id="emptyPlan" class="empty-state"><div class="empty-icon">✈</div><strong>Your next trip starts here</strong><p>Fill in your trip details and generate a plan to see a day-wise itinerary, budget estimate, and travel options.</p></div>
+          <div id="planContent" hidden></div>
+        </section>
+
+        <section class="card tools-card">
+          <div class="section-heading compact"><div class="section-icon amber">⌘</div><div><h2>Tool observations</h2><p>Outputs from the agent's simulated tools.</p></div></div>
+          <div id="observations" class="observations"><div class="observation-placeholder">No tools have run yet. Generate a plan to see the agent's observations.</div></div>
+        </section>
+
+        <section class="card approval-card" id="approvalCard">
+          <div class="section-heading compact"><div class="section-icon green">✓</div><div><h2>Human-in-the-loop approval</h2><p>The agent needs your decision before finalising the demo plan.</p></div></div>
+          <div id="approvalContent" class="approval-content"><p>Generate a travel plan first. You can then approve it or modify the details.</p></div>
+        </section>
+      </div>
+    </section>
+    <footer>TravelMate is an educational prototype. It does not book tickets, reserve hotels, or process payments.</footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
