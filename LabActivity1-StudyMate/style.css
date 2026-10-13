@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #17233c;
+  --muted: #7c879c;
+  --line: #e8ebf3;
+  --blue: #5268e8;
+  --purple: #8b5cf6;
+  --panel: #ffffff;
+  --soft: #f5f6ff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: #f7f8fc; font-family: "DM Sans", Arial, sans-serif; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+.app-shell { min-height: 100vh; display: grid; grid-template-columns: 286px minmax(0, 1fr); max-width: 1600px; margin: 0 auto; background: #fff; box-shadow: 0 0 70px #17233c0a; }
+.sidebar { background: #fbfbff; border-right: 1px solid var(--line); padding: 30px 20px 22px; display: flex; flex-direction: column; min-height: 100vh; }
+.brand { display: flex; align-items: center; gap: 11px; margin: 0 0 48px 4px; }
+.brand-mark { height: 39px; width: 39px; border-radius: 13px; display: grid; place-items: center; color: white; font: 800 21px Manrope, sans-serif; background: linear-gradient(135deg, #536bea, #9a61f5); box-shadow: 0 6px 15px #6a69e833; }
+.brand strong { display: block; font: 800 19px Manrope, sans-serif; letter-spacing: -.7px; }
+.brand span { display: block; margin-top: 2px; color: #9aa3b7; font-size: 9px; font-weight: 700; letter-spacing: 1.8px; }
+.sidebar-label { color: #9aa3b7; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; margin: 0 0 13px 4px; }
+.select-label { display: block; color: #6f7b91; font-size: 12px; margin: 0 0 8px 4px; }
+select { width: 100%; border: 1px solid #e4e7f1; border-radius: 11px; background: white; padding: 12px 10px; color: #27334d; outline: none; font-size: 12px; }
+select:focus, input:focus { border-color: #a8b2ff; box-shadow: 0 0 0 3px #6578ed14; }
+.technique-card { margin-top: 14px; padding: 16px; border: 1px solid #e7e8ff; border-radius: 14px; background: linear-gradient(135deg, #f5f6ff, #fbf7ff); }
+.mini-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 9px; color: #5c66df; background: white; box-shadow: 0 2px 8px #3d4da90d; margin-bottom: 12px; }
+.technique-card strong { font-size: 13px; }
+.technique-card p { color: #7b849b; font-size: 11px; line-height: 1.65; margin: 7px 0 0; }
+.examples-label { margin-top: 35px; }
+.sample-list { display: grid; gap: 5px; }
+.sample { display: flex; gap: 11px; align-items: center; border: 0; text-align: left; background: transparent; color: #59657d; border-radius: 9px; padding: 11px 9px; font-size: 12px; transition: .15s; }
+.sample span { width: 17px; color: #8185e9; text-align: center; font-size: 15px; }
+.sample:hover { background: #f0f1ff; color: #3849c7; }
+.sidebar-note { margin-top: auto; border-top: 1px solid var(--line); padding: 19px 3px 0; display: flex; gap: 10px; align-items: flex-start; }
+.note-dot, .online-dot { width: 7px; height: 7px; background: #35bf8a; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.note-dot { margin-top: 5px; }
+.sidebar-note strong { font-size: 11px; }
+.sidebar-note p { color: #8b95a8; font-size: 10px; margin: 5px 0 0; line-height: 1.5; }
+.main-panel { min-width: 0; display: flex; flex-direction: column; min-height: 100vh; }
+.topbar { height: 78px; padding: 0 42px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eff0f6; }
+.status { color: #768198; font-size: 11px; display: flex; align-items: center; gap: 8px; }
+.status-divider { color: #c5cada; }
+.clear-button { border: 1px solid #e7eaf2; background: white; color: #7d879a; padding: 9px 12px; border-radius: 9px; font-size: 11px; }
+.clear-button:hover { background: #f7f7ff; color: #4f5fe0; }
+.mobile-brand { display: none; align-items: center; gap: 8px; }
+.mobile-brand .brand-mark { width: 30px; height: 30px; border-radius: 9px; font-size: 16px; }
+.conversation { width: 100%; max-width: 850px; padding: 36px 42px 18px; margin: 0 auto; flex: 1; display: flex; flex-direction: column; }
+.welcome { text-align: center; padding: 38px 0 27px; }
+.welcome-icon { display: grid; place-items: center; margin: 0 auto 21px; width: 48px; height: 48px; border-radius: 16px; color: white; font-size: 23px; background: linear-gradient(135deg, #526bea, #a16af4); box-shadow: 0 9px 22px #6d68e52b; }
+.eyebrow { color: #7c78df; font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+h1 { font: 800 clamp(28px, 3.2vw, 40px)/1.2 Manrope, sans-serif; letter-spacing: -1.8px; margin: 13px 0 14px; }
+.welcome > p { max-width: 490px; margin: 0 auto; color: #8a94a8; font-size: 13px; line-height: 1.8; }
+.welcome-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-top: 22px; }
+.welcome-pills span { color: #7c86a0; background: #f7f8fc; border: 1px solid #eceef5; border-radius: 20px; padding: 7px 11px; font-size: 10px; }
+.chat-messages { display: flex; flex-direction: column; gap: 20px; }
+.message { display: flex; gap: 10px; align-items: flex-start; animation: rise .2s ease-out; }
+.message.user { justify-content: flex-end; }
+.avatar { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 10px; flex-shrink: 0; font-size: 12px; font-weight: 700; }
+.assistant .avatar { background: linear-gradient(135deg, #536bea, #9364ef); color: white; }
+.user .avatar { order: 2; background: #e9edff; color: #5867db; }
+.message-body { max-width: min(78%, 600px); }
+.message-name { font-size: 10px; font-weight: 700; color: #929bb0; margin: 0 0 6px 2px; }
+.user .message-name { text-align: right; }
+.bubble { font-size: 13px; line-height: 1.75; padding: 13px 16px; border-radius: 4px 15px 15px 15px; color: #4f5c73; background: #f6f7fc; border: 1px solid #eff0f7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.user .bubble { color: white; border: 0; border-radius: 15px 4px 15px 15px; background: linear-gradient(135deg, #596ce9, #7863e8); }
+.answer-meta { color: #a0a8b9; font-size: 10px; margin: 7px 0 0 2px; }
+.composer-wrap { width: 100%; max-width: 850px; margin: 0 auto; padding: 12px 42px 23px; }
+.quick-prompts { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 0 0 12px; }
+.quick-prompts > span { color: #a0a8b8; font-size: 10px; margin-right: 3px; }
+.quick-prompts button { color: #727d95; background: white; border: 1px solid #e8eaf3; border-radius: 20px; padding: 7px 10px; font-size: 10px; }
+.quick-prompts button:hover { border-color: #c7cbff; color: #5965d9; }
+.composer { display: flex; gap: 10px; border: 1px solid #e5e8f2; border-radius: 14px; padding: 7px; box-shadow: 0 6px 22px #1c2a4a08; background: white; }
+.composer input { min-width: 0; flex: 1; border: 1px solid transparent; border-radius: 9px; outline: none; padding: 10px 12px; color: #34415a; font-size: 12px; }
+.composer input::placeholder { color: #adb4c3; }
+.send-button { display: flex; align-items: center; gap: 12px; border: 0; border-radius: 10px; color: white; background: linear-gradient(135deg, #596ce9, #7e60e9); padding: 0 16px; font-size: 11px; font-weight: 700; box-shadow: 0 4px 12px #6569e52b; }
+.send-button:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.send-button span { font-size: 16px; }
+.disclaimer { text-align: center; font-size: 9px; color: #a5adbc; margin: 11px 0 0; }
+@keyframes rise { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (min-width: 1200px) { .conversation { padding-top: 45px; } }
+@media (max-width: 760px) {
+  .app-shell { display: flex; flex-direction: column; }
+  .sidebar { min-height: auto; padding: 14px 16px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .sidebar > .brand, .sidebar-label, .select-label, .technique-card, .examples-label, .sample-list, .sidebar-note { display: none; }
+  .sidebar::before { content: "PROMPTING TECHNIQUE"; display: block; color: #9aa3b7; font-size: 9px; font-weight: 700; letter-spacing: 1.2px; margin: 0 0 8px 2px; }
+  .sidebar select { padding: 10px; }
+  .main-panel { min-height: calc(100vh - 77px); }
+  .topbar { height: 58px; padding: 0 16px; }
+  .mobile-brand { display: flex; }
+  .mobile-brand strong { font: 800 15px Manrope, sans-serif; }
+  .status { display: none; }
+  .clear-button { padding: 8px 10px; }
+  .conversation { padding: 18px 16px; }
+  .welcome { padding: 32px 0 20px; }
+  h1 { letter-spacing: -1px; }
+  .welcome > p { font-size: 12px; }
+  .composer-wrap { padding: 10px 14px 16px; }
+  .quick-prompts { gap: 5px; }
+  .quick-prompts > span { width: 100%; }
+  .quick-prompts button { font-size: 9px; }
+  .message-body { max-width: 86%; }
+  .disclaimer { line-height: 1.5; }
+}

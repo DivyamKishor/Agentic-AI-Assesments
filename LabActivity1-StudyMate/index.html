@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple rule-based study assistant demonstrating zero-shot, few-shot, and role prompting.">
+  <title>StudyMate — Study Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div><strong>StudyMate</strong><span>STUDY ASSISTANT</span></div>
+      </div>
+      <div class="sidebar-label">PROMPTING TECHNIQUE</div>
+      <label class="select-label" for="technique">Choose a response style</label>
+      <select id="technique">
+        <option value="zero">Zero-shot prompting</option>
+        <option value="few">Few-shot prompting</option>
+        <option value="role">Role prompting</option>
+      </select>
+      <div class="technique-card" id="techniqueCard">
+        <div class="mini-icon">✦</div>
+        <strong>Zero-shot</strong>
+        <p>Ask a question directly. The assistant uses predefined rules without examples in the prompt.</p>
+      </div>
+      <div class="sidebar-label examples-label">TRY A SAMPLE</div>
+      <div class="sample-list">
+        <button class="sample" data-question="What is photosynthesis?"><span>◉</span> Explain photosynthesis</button>
+        <button class="sample" data-question="How can I study better?"><span>▤</span> Study tips</button>
+        <button class="sample" data-question="Explain recursion."><span>⌘</span> Explain recursion</button>
+        <button class="sample" data-question="How do I apply for a scholarship?"><span>◇</span> Scholarship help</button>
+        <button class="sample" data-question="What are the library timings?"><span>◷</span> Library timings</button>
+      </div>
+      <div class="sidebar-note"><span class="note-dot"></span><div><strong>Offline-friendly</strong><p>Runs locally in your browser. No API key required.</p></div></div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <div class="mobile-brand"><div class="brand-mark">S</div><strong>StudyMate</strong></div>
+        <div class="status"><span class="online-dot"></span> Rule-based assistant <span class="status-divider">•</span> Local mode</div>
+        <button id="clearChat" class="clear-button" type="button">↻ <span>Clear chat</span></button>
+      </header>
+
+      <section class="conversation">
+        <div class="welcome" id="welcome">
+          <div class="welcome-icon">✦</div>
+          <div class="eyebrow">YOUR PERSONAL STUDY COMPANION</div>
+          <h1>What would you like<br class="desktop-break"> to learn today?</h1>
+          <p>Ask a study question, get practical guidance, or explore how different prompting techniques change an answer.</p>
+          <div class="welcome-pills"><span>Simple explanations</span><span>Student FAQs</span><span>Study tips</span></div>
+        </div>
+        <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+      </section>
+
+      <section class="composer-wrap">
+        <div class="quick-prompts">
+          <span>Try asking</span>
+          <button data-question="How do I manage my time effectively?">Time management</button>
+          <button data-question="How should I prepare for exams?">Exam preparation</button>
+          <button data-question="Explain recursion.">Recursion</button>
+        </div>
+        <form id="chatForm" class="composer">
+          <input id="questionInput" type="text" placeholder="Ask StudyMate anything about studying..." autocomplete="off" required aria-label="Your question">
+          <button class="send-button" type="submit" aria-label="Send question">Send <span>↑</span></button>
+        </form>
+        <p class="disclaimer">StudyMate uses predefined rules and examples. It may not know every answer.</p>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
